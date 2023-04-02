@@ -15,27 +15,66 @@
 
 | Ценность      | Непримемлемые события | Комментарий  |
 | ------------- |:-------------:| -----:|
-| Конфиденциальные данные клиента      | неавторизованный доступ | оборотный штраф |
+| Данные от промышленного оборудования      | утеря данных |  |
+| Интерфейс для оборорудования      | прерывание соединения, полное отсутствие соедиения |  |
+| Обработчик полученных данных      | некорректная обработка, некорректная передача обработанных данных |  |
+| Анализатор обработанных данных      | ложно-положительные срабатывания |  |
+| Функция удаленного доступа      | неавторизованный доступ, потеря соединения |  |
+| Генератор событий     | некорректная передача |  |
+| Сгенерированные события       | несанкционированный доступ, утечка данных |  |
+| Функция обновления ПО устройства     | прерывание во время работы, некорректная установка обновления |  |
+| Файлы обновления ПО      | модификация злоумышленником |  |
+| Пользовательский интерфейс    | неавторизованный доступ |  |
+| Менеджер обновлений    | некорректная сравнение файлов |  |
+| Загрузчик    | некорректная загрузка, неполная загрузка, загрузка файлов с вредоносной нагрузкой |  |
 
 ## Верхнеуровневые сценарии (режимы) работы продукта
 
-![Пример сценария](https://www.plantuml.com/plantuml/png/BSwn3S8m48NX_gOukSy2AL1MiK8AIuc9ugEW0oD4nG9qR411a2KWCxpR20lJllSLVnF4Jh8TUYBRocPYWojUI9ZnqMZO1cvxrtcXCJlNkj5woUY6f0UDcRrn_x6m2z8DH8LpjVelDUi9Yvxro4Ol6h4OAWzN6HLUCnwOTOyd4b7J-NLE-W80)
+![Пример сценария](https://www.plantuml.com/plantuml/png/ZP8nRi9044NxFSMAFXUWYBZAO5QH9MEGTrFG4L8GYKY9b3wvWaDOGK0sL_XxeypkAB6XIcMD_FwV-TyUMKULkvyMQaAEncID7k0TdsZ3CZnYXnPRr6XmW1zeijekh3DJDMTLdkLpAfq8mfAnA5k5DSF71C_65Osls5SqJ9wOsQCEgxWeiLHIiR1Ny1iyupwQ2wh30rhUjk7nWE-al3EbgSWPHPcRLQpwOEGKdh6NwndrSKvmLkIcT4f93drpAqSETTp3V2z8ojs43Rp6hXjK4lILbweZwWwHLCpyorde2rtTrTMz_eiyvBHdzlNOSYLFyFAbDCwnB5xw5IkGf-O-6cvZBLHu6QXVcsWfnGpx1JEZrCYK4_u_VW00)
 
-Для редактирования онлайн в ссылке замените /plantuml/png на /plantuml/uml и перейдите [по изменённой ссылке](//www.plantuml.com/plantuml/uml/BSwn3S8m48NX_gOukSy2AL1MiK8AIuc9ugEW0oD4nG9qR411a2KWCxpR20lJllSLVnF4Jh8TUYBRocPYWojUI9ZnqMZO1cvxrtcXCJlNkj5woUY6f0UDcRrn_x6m2z8DH8LpjVelDUi9Yvxro4Ol6h4OAWzN6HLUCnwOTOyd4b7J-NLE-W80), после изменения диаграммы замените ссылку в документе.
+Загрузка обновления ![Обновление системы](https://www.plantuml.com/plantuml/png/bP51QeD058RtxnH3zhb05YLNcIPI1BKXJXRTcLhemaANtHHARp1DQpKQUuR_tQZFoH0bX48HaU5zd__lSvuQlJQRE2AzCBThDS4RVj3o4ofvxc3v7cL_dYYTgaKK1ecXbIZX8bpfn8ZmAa0dznU-KNAcnFj0v-pMZMhidHqdD-ipzmKMdvnnZeeV1MmS62RIAefegOs-rcaWu3jgthek1rW7fNUf2M8YEfPIqoiNC5Fy08izsej5g6U4zRhGMxaA0HhKIXXxyhcGuH3B1HqTDVLH_vDzy61cGkxG-MRbIUqBdybo78yFVt-QNzziLCQNozqhhJSRpicpuusW6duA6jWBOVnCHFCWMMxYw1S0)
 
 ## Роли пользователей
 
 | Роль | Описание | Комментарий  |
 | ------------- |:-------------:| -----:|
-| Заказчик      | размещает заказ | должен предварительно зарегистрироваться |
+| Пользователь      | принимает данные через интерфейс | должен пройти аутификацию |
+| Администратор обновлений      | загрузка файлов обновления | должен пройти аутификацию |
+| Администратор       | контролирует корректность работы устройства | должен пройти аутификацию |
 
 ## Контекст работы системы
 
-- Внешние по отношению к продукту сервисы и программы, с которыми он может взаимодействовать, расположенные на устройстве, внутри локальной сети, на внешних ресурсах
-- Планируемое место расположения продукта и меры ограничения доступа к продукту
-- По умолчанию описывается в текстовом виде, но если заказчик умеет рисовать диаграммы, контекстная диаграмма тут тоже подойдёт
+- Устройство располагается в локальной сети отдельно от заводского оборудования
+- Подключено к маршрутизатору, по которому принимает данные от оборудования
+- Оборудования, подключенные к устройству, сверяются со списком разрешеных устройств
+- На выходе отправляет (в случае обнаружения превышения пороговых значений) события пользователю, находящемуся во внешней сети
+- Админитсратор обновлений пересылает файл обновлений из локальной сети
+- Администратор обновлений должен быть авторизован в системе 
+- Администратору обновлений запрещено проводить прочие операции над устройством
+- Для получения событий пользователь должен быть авторизован
+- Данные с обородования поступают на выделенный для них интерфейс
 
-## Опционально - аппаратная платформа
+## Цели и предположения безопасности
 
-- сведения о целевой аппаратной платформе, если есть важные ограничения
-- по умолчанию описывается в текстовом виде, но если заказчик умеет рисовать диаграммы, обобщённая диаграмма развёртывания тут тоже подойдёт
+### Цели
+
+1. Только аутентичные и авторизованные пользователи получают события сгенерированные системой
+2. Обрабатываются данные, полученные только с оборудования, внесенного в список разрешенных
+
+### Предположения
+
+1. Файлы обновлений не содержат зловредной нагрузки
+2. Каналы передачи данных с оборудований защищены
+
+## Ключевые сценарии
+
+### Негативные сценарии
+
+Сценарий 1: получение данных с недостоверного источника
+
+ ![Сценарий 1](https://www.plantuml.com/plantuml/png/ZL9DJW8n6Dtt50skkG0BmptKHO76aC10Pkg27U824qmqSQzNg4ZZ267c2gytyhKL1rYvcUPBty_tNgTR69MRk_5839HHFLLesS8RFb3vkN_01XNMiDYZX9Cy-2dn9QypIOp3ZlUVgAI_HusItoriIwf25hF2wB6yoFL0JEamx0-dAZD9tCzXeyN2BoctZOn9BrUzC-mB7IrDQ0dh5s6fY5MP6isAC_0hN5WmY2TesAgYsufZYU_8lDMPpfNHGlND92VhdP2TVw91J4ge2tC4zqT3dHaXViEqhqAScykqQYVMWUeuJcngxrUXfaqpY4YGxOPvoc9f3IHb8-PVoWbzmhDDQStrN_0ECzVKTLYpc4UumzlMeRBqd5YdKx8LQlbbGlddbZZ81CbKJ-UuPc94LsS3_b0_)
+ 
+ Сценарий 2: получение событий неавторизованным пользователем
+
+ ![Сценарий 2](https://www.plantuml.com/plantuml/png/ZP9DJiCm58JtFeLLrbmW2zIhE8c58gLf5Pj5Tw4iYbGaa5Z36KoeHN-Kz0hZ6_5YAqt8YbNqx6_cQSQPAorA_R38MIgqY8MIV8PFVA5rbNl27Yrg63GumCwuK5ojbPOBjY9LbcGhKUWWS1MCbstSbk2JXvTnAU89-uQ6o3CnFp1kqotoh2X4lbOJ-1sMSEkg7kNk4Irjsz5umD4hxsKXIw4b4ubUbgJw89L17HH-KP-YSJiSEIvqS7Ol_GM1jfkzMv9dadRVb39bBAJbjtSXIiJH4DgEurvzBST-69WNZ9GJrGbcG49sOlxb7EW_EZEKEbnVYuceamlvMjHKt3DiU4_V0nst-FOz-2-dKiZBRGFbNcUij-aiGplH-1c8ONDPfFGJ_G80)
+
