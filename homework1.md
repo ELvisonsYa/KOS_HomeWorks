@@ -78,3 +78,4 @@
 
  ![Сценарий 2](https://www.plantuml.com/plantuml/png/ZP9DJiCm58JtFeLLrbmW2zIhE8c58gLf5Pj5Tw4iYbGaa5Z36KoeHN-Kz0hZ6_5YAqt8YbNqx6_cQSQPAorA_R38MIgqY8MIV8PFVA5rbNl27Yrg63GumCwuK5ojbPOBjY9LbcGhKUWWS1MCbstSbk2JXvTnAU89-uQ6o3CnFp1kqotoh2X4lbOJ-1sMSEkg7kNk4Irjsz5umD4hxsKXIw4b4ubUbgJw89L17HH-KP-YSJiSEIvqS7Ol_GM1jfkzMv9dadRVb39bBAJbjtSXIiJH4DgEurvzBST-69WNZ9GJrGbcG49sOlxb7EW_EZEKEbnVYuceamlvMjHKt3DiU4_V0nst-FOz-2-dKiZBRGFbNcUij-aiGplH-1c8ONDPfFGJ_G80)
 
+## Политика архитектуры системы
